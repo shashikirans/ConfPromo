@@ -1,8 +1,8 @@
 FactoryGirl.define do
   factory :user do
-    user_name "Kavya H S"
-    email "kavya@gmail.com"
-    organization "qwinix"
+    user_name "name of user"
+    email "email@gmail.com"
+    organization "company name"
     designation "developer"
   end
 end

@@ -1,5 +1,4 @@
 function UserValidator() {
-alert("hii");
   $("#new_user").validate({
   debug: true,
   rules: {
