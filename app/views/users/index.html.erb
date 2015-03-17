@@ -1,5 +1,5 @@
  <%= render partial: 'layouts/error_messages', locals: {error_messages: @user.errors.full_messages} if @user.errors.any? -%>
- <%= form_for @user  do |f| %>
+ <%= form_for @user do |f| %>
   <p>
     <%= f.label :Name%><br>
     <%= f.text_field :user_name %>
@@ -24,3 +24,7 @@
     <%= f.submit "ok" %>
   </p>
 <% end %>
+
+<script>
+UserValidator();
+</script>

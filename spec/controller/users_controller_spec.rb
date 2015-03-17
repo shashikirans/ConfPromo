@@ -16,6 +16,13 @@ RSpec.describe UsersController, :type => :controller do
       expect do
         post :create, user_params
       end.to change(User, :count).by(1)
+      expect(response.status).to eq(302)
+    end
+    it "should not create a user" do
+      user_params = {
+        user: {}
+      }
+      expect(response.status).to eq(200)
     end
   end
 end
