@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_many :questions
+  has_many :qchoices
   validates :user_name, presence: true
 
   validates :email, presence: true, uniqueness: true,
