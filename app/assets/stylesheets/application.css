@@ -13,3 +13,28 @@
  *= require_tree .
  *= require_self
  */
+
+
+ .box {
+ 	width: 50px;
+ 	height: 50px;
+ 	margin-left: 1000px;
+ 	margin-top: -80px;
+ }
+
+ .active {
+ 	background: #9BE;
+ 	border: 3px solid #8AD;
+ }
+
+ .inactive {
+ 	background: #D33;
+ 	border: 3px solid #C22;
+ }
+
+ #countdown {
+ 	font-size: 22px;
+ 	color: #444;
+ 	text-align: center;
+ 	padding: 10px;
+ }
