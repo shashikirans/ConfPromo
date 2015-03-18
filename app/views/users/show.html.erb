@@ -3,11 +3,13 @@
 <div class="box active">
 	<div id="countdown"></div>
 </div><br><br>
+<%= form_for :uanswer, url: user_path(@question,@user), :method => :patch do |f|%>
 <%=  @i +=1 %>
-<%= @question.question %><br>
-<% binding.pry %>
-<% @p = 0%>
+<%= @question.question %><br><br>
 <% @choices.each do |choice| %>
-<%= radio_button(:choosen_answer, choice.qoption_text, @p += 1) %>
-<%= choice.qoption_text %>
-<%end%><br><br>
+<%= f.radio_button :choosen_answer,  choice.qoption_id %>
+<%= choice.qoption_text %><br><br>
+<% end %><br><br>
+
+<%= f.submit "Next"%>
+<% end %>
