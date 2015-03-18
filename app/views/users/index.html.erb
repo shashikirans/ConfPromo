@@ -1,0 +1,30 @@
+ <%= render partial: 'layouts/error_messages', locals: {error_messages: @user.errors.full_messages} if @user.errors.any? -%>
+ <%= form_for @user do |f| %>
+  <p>
+    <%= f.label :Name%><br>
+    <%= f.text_field :user_name %>
+  </p>
+
+  <p>
+    <%= f.label :Email %><br>
+    <%= f.text_field :email %>
+  </p>
+
+  <p>
+    <%= f.label :Organization %><br>
+    <%= f.text_field :organization %>
+  </p>
+
+  <p>
+    <%= f.label :Designation %><br>
+    <%= f.text_field :designation %>
+  </p>
+
+  <p>
+    <%= f.submit "ok" %>
+  </p>
+<% end %>
+
+<script>
+UserValidator();
+</script>
