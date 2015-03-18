@@ -7,7 +7,8 @@ function UserValidator() {
       },
       "user[email]": {
        email: true,
-       required: true
+       required: true,
+       remote:"/users/check_email"
      },
      "user[organization]" : {
       required: true
@@ -26,7 +27,8 @@ function UserValidator() {
   },
   "user[email]": {
     required: "This field is required!",
-    email: "Please enter a valid E-Mail address!"
+    email: "Please enter a valid E-Mail address!",
+    remote: "Email has been already taken"
   },
   "user[organization]": {
     required:"This field is required!"
