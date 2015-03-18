@@ -17,6 +17,9 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @question = Question.find 16
+    @choices = Qchoice.where(question_id: @question.id)
+    @i = 0
   end
 
   private

@@ -2,4 +2,12 @@
 <%= button_tag "start",:id=>"start" %>
 <div class="box active">
 	<div id="countdown"></div>
-</div>
+</div><br><br>
+<%=  @i +=1 %>
+<%= @question.question %><br>
+<% binding.pry %>
+<% @p = 0%>
+<% @choices.each do |choice| %>
+<%= radio_button(:choosen_answer, choice.qoption_text, @p += 1) %>
+<%= choice.qoption_text %>
+<%end%><br><br>
