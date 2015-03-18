@@ -3,7 +3,7 @@
 <div class="box active">
 	<div id="countdown"></div>
 </div><br><br>
-<%= form_for :uanswer, url: user_path(@question,@user), :method => :patch do |f|%>
+<%= form_for :uanswer, url: user_path(question_id: @question, user_id: @user.id), :method => :patch do |f|%>
 <%=  @i +=1 %>
 <%= @question.question %><br><br>
 <% @choices.each do |choice| %>

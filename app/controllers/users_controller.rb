@@ -20,13 +20,17 @@ class UsersController < ApplicationController
     @question = Question.find 16
     @choices = Qchoice.where(question_id: @question.id)
     @i = 0
-    @p = 0
   end
 
   def update
-    binding.pry
     @uanswer = Uanswer.new(params[:uanswer].permit(:choosen_answer))
-    @uanswer.question_id = params[:id]
+    @uanswer.question_id = params[:question_id]
+    @uanswer.user_id = params[:user_id]
+    @uanswer.save
+    # @q= Question.find params[:question_id]
+    # if @q.answer_id == @uanswer.choosen_answer
+    # end
+    binding.pry
   end
 
   private
