@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     member do
     get 'user_question'
     post "check_quiz"
+    get "result"
   end
   end
   resources :questions do

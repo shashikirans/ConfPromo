@@ -10,7 +10,6 @@ class QchoicesController < ApplicationController
     redirect_to question_path(@question)
   end
 
-
   def show
     @question=Question.find_by_id params[:id]
   end

@@ -9,6 +9,8 @@ class UsersController < ApplicationController
     if @user.valid?
       @user.save
       session[:user_id] = @user.id
+      $i = 0
+      @@question_ids = Question.all.collect(&:id).shuffle!
       redirect_to user_path(@user)
     else
       render 'index'
@@ -16,35 +18,36 @@ class UsersController < ApplicationController
   end
 
   def show
+    if $i < 5
     @user = User.find(params[:id])
-    @question_ids = Question.all.collect(&:id)
-    @question = Question.find @question_ids.sample
+    @question = Question.find @@question_ids.pop
     @choices = Qchoice.where(question_id: @question.id)
-    @i = 0
+    else
+        redirect_to result_user_path
+    end
+
   end
 
   def check_quiz
-    @uanswer = Uanswer.new(params[:uanswer].permit(:choosen_answer))
-    @uanswer.question_id = params[:question_id]
-    @uanswer.user_id = params[:user_id]
-    @q= Question.find params[:question_id]
-    if @q.answer_id == @uanswer.choosen_answer
-      @uanswer.result = true
-    else
-      @uanswer.result = false
+    if params[:uanswer].present?
+      @uanswer = Uanswer.new(params.require(:uanswer).permit(:choosen_answer))
+      @uanswer.question_id = params[:question_id]
+      @uanswer.user_id = params[:user_id]
+      @q= Question.find params[:question_id]
+      if @q.answer_id == @uanswer.choosen_answer
+        @uanswer.result = true
+      else
+        @uanswer.result = false
+      end
+      @uanswer.save
     end
-    @uanswer.save
     respond_to do |format|
-      format.js {redirect_to user_question_user_path}
+      format.html {redirect_to user_path}
     end
   end
 
-  def user_question
-    @user = User.find params[:id]
-    @question_ids = Question.all.collect(&:id)
-    @question = Question.find @question_ids.sample
-    @choices = Qchoice.where(question_id: @question.id)
-    @i = 0
+  def result
+    @result = Uanswer.where(user_id: params[:id]).where(result: true).count
   end
 
   private
