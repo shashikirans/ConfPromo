@@ -1,1 +1,8 @@
 <h1>Hi <%= @user.user_name %>!</h1>
+<%= button_tag "start",:id=>"start" %>
+<div class="box active">
+	<div id="countdown"></div>
+</div><br><br>
+<div id="question">
+<%= render partial: 'user_question'%>
+</div>

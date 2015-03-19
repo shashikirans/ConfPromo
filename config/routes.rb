@@ -1,6 +1,15 @@
 Rails.application.routes.draw do
   root 'users#index'
-  resources :users
+  resources :users do
+    member do
+    get 'user_question'
+    post "check_quiz"
+  end
+  end
+  resources :questions do
+    resources :qchoices
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

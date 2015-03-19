@@ -1,39 +1,39 @@
 function UserValidator() {
   $("#new_user").validate({
-  debug: true,
-  rules: {
-    "user[user_name]": {
-      required:true
+    debug: true,
+    rules: {
+      "user[user_name]": {
+        required:true
+      },
+      "user[email]": {
+       email: true,
+       required: true
+     },
+     "user[organization]" : {
+      required: true
     },
-    "user[email]": {
-     email: true,
-     required: true
-   },
-   "user[organization]" : {
-    required: true
+    "user[designation]": {
+      required:true
+    }
+  },
+
+  errorElement: "span",
+  errorClass: "help-block",
+
+  messages: {
+   "user[user_name]":{
+    required: "This field is required!"
+  },
+  "user[email]": {
+    required: "This field is required!",
+    email: "Please enter a valid E-Mail address!"
+  },
+  "user[organization]": {
+    required:"This field is required!"
   },
   "user[designation]": {
-    required:true
+    required: "This field is required!"
   }
-},
-
-errorElement: "span",
-errorClass: "help-block",
-
-messages: {
- "user[user_name]":{
-  required: "This field is required!"
-},
-"user[email]": {
-  required: "This field is required!",
-  email: "Please enter a valid E-Mail address!"
-},
-"user[organization]": {
-  required:"This field is required!"
-},
-"user[designation]": {
-  required: "This field is required!"
-}
 },
 
 highlight: function(element) {
@@ -78,3 +78,12 @@ invalidHandler: function(event, validator) {
     });
 
 }
+
+$(document).on("click", '#start', function(event){
+  $('#countdown').countdown({
+    seconds  : 120,
+    callback : function() {
+      $('.box').removeClass('active').addClass('inactive');
+    }
+  });
+});
