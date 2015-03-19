@@ -1,6 +1,4 @@
 class User < ActiveRecord::Base
-  has_many :questions
-  has_many :qchoices
   has_many :uanswers
 
   validates :user_name, presence: true
