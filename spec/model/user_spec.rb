@@ -1,6 +1,7 @@
 require 'rails_helper'
 RSpec.describe User, :type => :model do
   let(:user) {FactoryGirl.create(:user)}
+
   context "Factory settings for users" do
 
     it "should validate the user factories" do
@@ -25,4 +26,8 @@ RSpec.describe User, :type => :model do
     expect(user.valid?).to be_falsy
   end
 
+  context "Associations" do
+   it { should have_many(:uanswers) }
 end
+end
+

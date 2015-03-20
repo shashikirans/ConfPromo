@@ -1,0 +1,9 @@
+<%= form_for :uanswer, url: check_quiz_user_path(question_id: @question, user_id: @user.id), :method => :post do |f|%>
+<%=  $i +=1 %>.
+<%= @question.question %><br><br>
+<% @choices.each do |choice| %>
+<%= f.radio_button :choosen_answer,  choice.qoption_id %>
+<%= choice.qoption_text %><br><br>
+<% end %><br><br>
+<%= f.submit "Next"%>
+<% end %>
