@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root 'users#index'
+  get 'users/check_email' => 'users#check_email'
   resources :users do
     member do
     get 'user_question'
