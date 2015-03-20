@@ -18,10 +18,14 @@ class UsersController < ApplicationController
       $i = 0
       @@question_ids = Question.all.collect(&:id).first(20).shuffle.sample(15)
       @@qwinix = Question.all.collect(&:id).last(5)
-      redirect_to user_path(@user)
+      redirect_to start_user_path(@user)
     else
       render 'index'
     end
+  end
+
+  def start
+    @user = User.find(params[:id])
   end
 
   def show

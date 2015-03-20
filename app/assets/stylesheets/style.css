@@ -24,7 +24,7 @@ color: #fff;
 }
 @font-face {
 	font-family: "digital-timer";
-	src:url('../fonts/DS-DIGI.TTF');
+	src: font-url('DS-DIGI.TTF') ;
 }
 .timer {
 	font-family: digital-timer;color: #fff;
