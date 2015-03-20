@@ -16,6 +16,6 @@
 //= require turbolinks
 //= require jquery.validate
 //= require jquery.validate.additional-methods
-//= require jquery.countdown
+//= require jquery.countdownTimer
 //= require user
 //= require_tree .
