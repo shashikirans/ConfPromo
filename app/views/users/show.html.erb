@@ -1,10 +1,31 @@
-<h1>Hi <%= @user.user_name %>!</h1>
-<%= button_tag "start",:id=>"start", :value => "#{@user.id}"%>
-<div class="box active" style="height: 28px;" id="countdowntimer">
-  <span id="future_date" style="font-size: 22px;"><span>
-	<div id="countdown"></div>
-</div><br><br>
-<div id="question">
-<br><br>
-<%= render partial: 'user_question'%>
+<div class="row">
+	<div class="col-sm-2">
+		<div class="quest-num">
+			<span>question</span>
+			<div class="number"> <%=  $i +=1 %> </div>
+		</div>
+	</div>
+
+	<%= render partial: 'user_question'%>
+
+
+	<div class="col-sm-3">
+		<div class="timer-runner">
+			<div class="row">
+				<div class="col-sm-5 ">
+					03 
+				</div>
+				<div class="col-sm-1"> : </div>
+				<div class="col-sm-5"> 00</div>
+			</div>
+			<div class="row min-sec">
+				<div class="col-sm-5 text-center">
+					<div>minutes </div>
+				</div>
+				<div class="col-sm-2">  </div>
+				<div class="col-sm-5"> seconds</div>
+			</div>
+
+		</div>
+	</div>
 </div>

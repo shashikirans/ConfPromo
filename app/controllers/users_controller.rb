@@ -60,6 +60,7 @@ class UsersController < ApplicationController
   end
 
   def result
+    @user = User.find(params[:id])
     @result = Uanswer.where(user_id: params[:id]).where(result: true).count
   end
 
