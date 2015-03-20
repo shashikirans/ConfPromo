@@ -81,11 +81,36 @@ invalidHandler: function(event, validator) {
 
 }
 
+// $(document).on("click", '#start', function(event){
+//   $("#future_date").countdowntimer({
+//     minutes : 3,
+//     seconds : 00,
+//     size : "lg"
+//   });
+// });
+
 $(document).on("click", '#start', function(event){
+
   $("#future_date").countdowntimer({
-    minutes : 3,
+    minutes : 03,
     seconds : 00,
     size : "lg"
   });
-});
 
+
+  setTimeout(function(){
+    var user_id = $("#start").val();
+    $.ajax({
+    type: 'GET',
+    url: "/users/"+user_id+"/result",
+    success: function (data){
+      console.log(data);
+      $("#question").hide();
+      $("#start").hide();
+      $("#name").hide();
+       $("#pop").append(data);
+    }
+  });
+  }, 180000);
+
+});
