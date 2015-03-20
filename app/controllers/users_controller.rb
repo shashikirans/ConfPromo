@@ -6,11 +6,11 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    if @user.valid?
-      @user.save
+    if @user.save
       session[:user_id] = @user.id
       $i = 0
-      @@question_ids = Question.all.collect(&:id).shuffle!
+      @@question_ids = Question.all.collect(&:id).first(15).shuffle.sample(5)
+      @@qwinix = Question.all.collect(&:id).last(5)
       redirect_to user_path(@user)
     else
       render 'index'
@@ -18,14 +18,16 @@ class UsersController < ApplicationController
   end
 
   def show
-    if $i < 5
     @user = User.find(params[:id])
-    @question = Question.find @@question_ids.pop
-    @choices = Qchoice.where(question_id: @question.id)
+    if $i < 5
+      @question = Question.find @@question_ids.pop
+      @choices = Qchoice.where(question_id: @question.id)
+    elsif $i >= 5 && $i < 10
+      @question = Question.find @@qwinix.pop
+      @choices = Qchoice.where(question_id: @question.id)
     else
-        redirect_to result_user_path
+      redirect_to result_user_path
     end
-
   end
 
   def check_quiz

@@ -80,10 +80,10 @@ invalidHandler: function(event, validator) {
 }
 
 $(document).on("click", '#start', function(event){
-  $('#countdown').countdown({
-    seconds  : 120,
-    callback : function() {
-      $('.box').removeClass('active').addClass('inactive');
-    }
+  $("#future_date").countdowntimer({
+    minutes : 3,
+    seconds : 00,
+    size : "lg"
   });
 });
+
