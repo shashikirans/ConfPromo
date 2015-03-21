@@ -2,54 +2,43 @@
 	<div class="col-sm-3">
 		<div class="timer-runner">
 			<div class="row">
-				<div class="col-sm-5 ">
-					03 
+				<div class="col-sm-5" id="future_date">
+					<!-- 03  -->
 				</div>
-				<div class="col-sm-1"> : </div>
-				<div class="col-sm-5"> 00</div>
+				<div class="col-sm-1"> </div>
+				<div class="col-sm-5"></div>
 			</div>
 			<div class="row min-sec">
 				<div class="col-sm-5 text-center">
 					<div>minutes </div>
 				</div>
 				<div class="col-sm-2">  </div>
-				<div class="col-sm-5"> seconds</div>
+				<div class="col-sm-6">seconds</div>
 			</div>
 
 		</div>
 	</div>
 
-
-
-<%= button_tag "start",:id=>"timer_start", :value => "#{@user.id}"%>
-<div class="box active" style="height: 28px;" id="countdowntimer">
-  <span id="future_date" style="font-size: 22px;"><span>
-	<div id="countdown"></div>
-</div><br><br>
+<input type="hidden" value="<%= @user.id %>" id="user">
 <script type="text/javascript">
-$(document).on("click", '#timer_start', function(event){
-
+ setTimeout(function(){
   $("#future_date").countdowntimer({
-    minutes : 0,
-    seconds : 30,
+    minutes : 3,
+    seconds : 00,
     size : "lg"
   });
+ },0000);
+  setTimeout(function(){
+    var user_id = $("#user").val();
+    console.log(user_id)
+    $.ajax({
+      type: 'GET',
+      url: "/users/"+user_id+"/result",
+      success: function (data){
+        $("nav:nth-child(1)").hide();
+        $("#results").replaceWith(data);
+      }
+    });
+  }, 180000);
 
-
-  // setTimeout(function(){
-  //   var user_id = $("#timer_start").val();
-  //   $.ajax({
-  //     type: 'GET',
-  //     url: "/users/"+user_id+"/result",
-  //     success: function (data){
-  //       console.log(data);
-  //       $("#question").hide();
-  //       $("#start").hide();
-  //       $("#name").hide();
-  //       $("#pop").append(data);
-  //     }
-  //   });
-  // }, 5000);
-
-});
 </script>

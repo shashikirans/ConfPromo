@@ -32,13 +32,7 @@
 		</div><!-- /.container-fluid -->
 	</nav>
 
-  <script type="text/javascript">
-   $(function () {
-    $('[data-toggle="tooltip"]').tooltip()
-  })
- </script>
-
- <div class="container">
+ <div class="container" id="results">
   <%= yield %>
   <footer>
     Qwinix Technologies. All rights reserved @2015 
@@ -48,3 +42,9 @@
 </body>
 </html>
 
+
+  <script type="text/javascript">
+   $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+  })
+ </script>

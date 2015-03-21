@@ -80,37 +80,3 @@ invalidHandler: function(event, validator) {
     });
 
 }
-
-// $(document).on("click", '#start', function(event){
-//   $("#future_date").countdowntimer({
-//     minutes : 3,
-//     seconds : 00,
-//     size : "lg"
-//   });
-// });
-
-$(document).on("click", '#timer_start', function(event){
-
-  $("#future_date").countdowntimer({
-    minutes : 0,
-    seconds : 30,
-    size : "lg"
-  });
-
-
-  // setTimeout(function(){
-  //   var user_id = $("#timer_start").val();
-  //   $.ajax({
-  //     type: 'GET',
-  //     url: "/users/"+user_id+"/result",
-  //     success: function (data){
-  //       console.log(data);
-  //       $("#question").hide();
-  //       $("#start").hide();
-  //       $("#name").hide();
-  //       $("#pop").append(data);
-  //     }
-  //   });
-  // }, 5000);
-
-});

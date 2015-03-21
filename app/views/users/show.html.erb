@@ -2,7 +2,7 @@
 <div id="user_question">
 	<%= render partial: 'user_question'%>
 </div>
-	<%= render partial: 'timer'%>
+	<%= render partial: 'timer',:locals  =>	{ :user => @user}%>
 </div>
 
 
