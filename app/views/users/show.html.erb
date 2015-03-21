@@ -1,31 +1,8 @@
 <div class="row">
-	<div class="col-sm-2">
-		<div class="quest-num">
-			<span>question</span>
-			<div class="number"> <%=  $i +=1 %> </div>
-		</div>
-	</div>
-
+<div id="user_question">
 	<%= render partial: 'user_question'%>
-
-
-	<div class="col-sm-3">
-		<div class="timer-runner">
-			<div class="row">
-				<div class="col-sm-5 ">
-					03 
-				</div>
-				<div class="col-sm-1"> : </div>
-				<div class="col-sm-5"> 00</div>
-			</div>
-			<div class="row min-sec">
-				<div class="col-sm-5 text-center">
-					<div>minutes </div>
-				</div>
-				<div class="col-sm-2">  </div>
-				<div class="col-sm-5"> seconds</div>
-			</div>
-
-		</div>
-	</div>
 </div>
+	<%= render partial: 'timer'%>
+</div>
+
+

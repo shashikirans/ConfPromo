@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-
   def check_email
     @user = User.find_by_email(params[:user][:email])
     respond_to do |format|
@@ -55,7 +54,7 @@ class UsersController < ApplicationController
       @uanswer.save
     end
     respond_to do |format|
-      format.html {redirect_to user_path}
+      format.js { redirect_to user_path}
     end
   end
 

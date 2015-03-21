@@ -89,28 +89,28 @@ invalidHandler: function(event, validator) {
 //   });
 // });
 
-$(document).on("click", '#start', function(event){
+$(document).on("click", '#timer_start', function(event){
 
   $("#future_date").countdowntimer({
-    minutes : 03,
-    seconds : 00,
+    minutes : 0,
+    seconds : 30,
     size : "lg"
   });
 
 
-  setTimeout(function(){
-    var user_id = $("#start").val();
-    $.ajax({
-      type: 'GET',
-      url: "/users/"+user_id+"/result",
-      success: function (data){
-        console.log(data);
-        $("#question").hide();
-        $("#start").hide();
-        $("#name").hide();
-        $("#pop").append(data);
-      }
-    });
-  }, 180000);
+  // setTimeout(function(){
+  //   var user_id = $("#timer_start").val();
+  //   $.ajax({
+  //     type: 'GET',
+  //     url: "/users/"+user_id+"/result",
+  //     success: function (data){
+  //       console.log(data);
+  //       $("#question").hide();
+  //       $("#start").hide();
+  //       $("#name").hide();
+  //       $("#pop").append(data);
+  //     }
+  //   });
+  // }, 5000);
 
 });

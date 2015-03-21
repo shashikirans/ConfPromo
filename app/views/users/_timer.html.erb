@@ -1,0 +1,55 @@
+
+	<div class="col-sm-3">
+		<div class="timer-runner">
+			<div class="row">
+				<div class="col-sm-5 ">
+					03 
+				</div>
+				<div class="col-sm-1"> : </div>
+				<div class="col-sm-5"> 00</div>
+			</div>
+			<div class="row min-sec">
+				<div class="col-sm-5 text-center">
+					<div>minutes </div>
+				</div>
+				<div class="col-sm-2">  </div>
+				<div class="col-sm-5"> seconds</div>
+			</div>
+
+		</div>
+	</div>
+
+
+
+<%= button_tag "start",:id=>"timer_start", :value => "#{@user.id}"%>
+<div class="box active" style="height: 28px;" id="countdowntimer">
+  <span id="future_date" style="font-size: 22px;"><span>
+	<div id="countdown"></div>
+</div><br><br>
+<script type="text/javascript">
+$(document).on("click", '#timer_start', function(event){
+
+  $("#future_date").countdowntimer({
+    minutes : 0,
+    seconds : 30,
+    size : "lg"
+  });
+
+
+  // setTimeout(function(){
+  //   var user_id = $("#timer_start").val();
+  //   $.ajax({
+  //     type: 'GET',
+  //     url: "/users/"+user_id+"/result",
+  //     success: function (data){
+  //       console.log(data);
+  //       $("#question").hide();
+  //       $("#start").hide();
+  //       $("#name").hide();
+  //       $("#pop").append(data);
+  //     }
+  //   });
+  // }, 5000);
+
+});
+</script>
