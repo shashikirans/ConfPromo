@@ -35,8 +35,9 @@
       type: 'GET',
       url: "/users/"+user_id+"/result",
       success: function (data){
-        $("nav:nth-child(1)").hide();
-        $("#results").replaceWith(data);
+        window.location.href=$(this).attr('url');
+        // $("nav:nth-child(1)").hide();
+        // $("#results").replaceWith(data);
       }
     });
   }, 180000);
