@@ -31,7 +31,7 @@ a:hover {
 .form-control::-webkit-input-placeholder {
 	color: #222222;
 }
-.btn { 
+.btn {
 	padding: 10px 20px;border-radius: 2px;
 	text-transform: uppercase;font-weight: 600;width: 100px;
 }
@@ -125,7 +125,7 @@ a:hover {
 	color: #fff;
 }
 footer {
-	position: absolute;bottom: 0;height: 40px;
+	position: absolute;bottom: 0; padding-left:850px;height: 40px;
 }
 /*Custom Radio button and Check box*/
 input[type="file"]:focus,
