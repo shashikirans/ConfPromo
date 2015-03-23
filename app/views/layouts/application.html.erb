@@ -8,10 +8,14 @@
 	<link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600,700' rel='stylesheet' type='text/css'>
 	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
 	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-	<%= csrf_meta_tags %>
-</head>
-<body onload="noBack();"
-    onpageshow="if (event.persisted) noBack();" onunload="">
+	<script type="text/javascript">
+		function preventBack(){window.history.forward();}
+		setTimeout("preventBack()", 0);
+		window.onunload=function(){null};</script>
+		<%= csrf_meta_tags %>
+	</head>
+	<body id="pop" onload="noBack();"
+	onpageshow="if (event.persisted) noBack();" onunload="">
 	<nav class="navbar navbar-default">
 		<div class="container-fluid" id="top">
 			<!-- Brand and toggle get grouped for better mobile display -->
@@ -33,16 +37,69 @@
 		</div><!-- /.container-fluid -->
 	</nav>
 
- <div class="container" id="results">
-  <%= yield %>
-  <footer>
-    Qwinix Technologies. All rights reserved @2015
-  </footer>
-</div>
-<script type="text/javascript">
-  window.history.forward();
-    function noBack() { window.history.forward(); }
-</script>
+	<div class="container" id="results">
+		<%= yield %>
+		<footer>
+			Qwinix Technologies. All rights reserved @2015
+		</footer>
+	</div>
+
 </body>
 </html>
 
+
+<script type="text/javascript">
+	$(function () {
+		$('[data-toggle="tooltip"]').tooltip()
+	})
+
+	function disableF5(e) { if ((e.which || e.keyCode) == 116) e.preventDefault(); };
+	$(document).on("keydown", disableF5);
+
+	$(document).keydown(function(e) {
+		if (e.keyCode == 82) {
+			return false;
+		}
+	});
+
+	<!--
+
+//Disable right mouse click Script
+//By Maximus (maximus@nsimail.com) w/ mods by DynamicDrive
+//For full source code, visit http://www.dynamicdrive.com
+
+var message="Function Disabled!";
+
+///////////////////////////////////
+function clickIE4(){
+	if (event.button==2){
+		alert(message);
+		return false;
+	}
+}
+
+function clickNS4(e){
+	if (document.layers||document.getElementById&&!document.all){
+		if (e.which==2||e.which==3){
+			alert(message);
+			return false;
+		}
+	}
+}
+
+if (document.layers){
+	document.captureEvents(Event.MOUSEDOWN);
+	document.onmousedown=clickNS4;
+}
+else if (document.all&&!document.getElementById){
+	document.onmousedown=clickIE4;
+}
+
+document.oncontextmenu=new Function("return false")
+
+// -->
+
+window.history.forward();function noBack(){window.history.forward();}
+// window.onbeforeunload = function() { return false };
+
+</script>

@@ -20,8 +20,13 @@
     </div> 
     <div class="col-sm-4">
       <div href="#" class="start" id="timer_start" value = "<%= @user.id %>">
-         <%= link_to 'starts &nbsp;&nbsp;&nbsp;''<i class="fa fa-angle-right arrow-icon"></i>'.html_safe,user_path(@user) -%>
-      </div> 
-    </div>
+       <%= link_to 'starts &nbsp;&nbsp;&nbsp;''<i class="fa fa-angle-right arrow-icon"></i>'.html_safe,user_path(@user) -%>
+     </div> 
+   </div>
 
-  </div>
+ </div>
+ <script>
+  function preventBack(){window.history.forward();}
+  setTimeout("preventBack()", 0);
+  window.onunload=function(){null};
+</script>

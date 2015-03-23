@@ -33,9 +33,9 @@
 
   });
 
-    UserValidator();
-    $(document).ready(function() {
-$("pop").bind("contextmenu",function(){
-   return false;
-});});
+  UserValidator();
+  function preventBack(){window.history.forward();}
+  setTimeout("preventBack()", 0);
+  window.onunload=function(){null};
+
 </script>

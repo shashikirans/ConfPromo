@@ -10,3 +10,8 @@
 <div style="margin-left:1000px;">
 <%= link_to "Home", root_path,:class=> " btn btn-primary" %>
 </div>
+<script>
+  function preventBack(){window.history.forward();}
+  setTimeout("preventBack()", 0);
+  window.onunload=function(){null};
+</script>
