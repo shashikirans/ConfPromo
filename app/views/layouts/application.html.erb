@@ -8,9 +8,14 @@
 	<link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600,700' rel='stylesheet' type='text/css'>
 	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
 	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-	<%= csrf_meta_tags %>
-</head>
-<body id="pop">
+	<script type="text/javascript">
+		function preventBack(){window.history.forward();}
+		setTimeout("preventBack()", 0);
+		window.onunload=function(){null};</script>
+		<%= csrf_meta_tags %>
+	</head>
+	<body id="pop" onload="noBack();"
+	onpageshow="if (event.persisted) noBack();" onunload="">
 	<nav class="navbar navbar-default">
 		<div class="container-fluid" id="top">
 			<!-- Brand and toggle get grouped for better mobile display -->
@@ -93,4 +98,11 @@ else if (document.all&&!document.getElementById){
 document.oncontextmenu=new Function("return false")
 
 // --> 
+
+window.history.forward();function noBack(){window.history.forward();}
+// window.onbeforeunload = function() { return false };
+$(document).ready(function() {
+	$('#pop').bind("contextmenu",function(){
+		return false;
+	});});
 </script>
