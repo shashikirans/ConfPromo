@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-
   def check_email
     @user = User.find_by_email(params[:user][:email])
     respond_to do |format|
@@ -18,10 +17,14 @@ class UsersController < ApplicationController
       $i = 0
       @@question_ids = Question.all.collect(&:id).first(20).shuffle.sample(15)
       @@qwinix = Question.all.collect(&:id).last(5)
-      redirect_to user_path(@user)
+      redirect_to start_user_path(@user)
     else
       render 'index'
     end
+  end
+
+  def start
+    @user = User.find(params[:id])
   end
 
   def show
@@ -51,11 +54,12 @@ class UsersController < ApplicationController
       @uanswer.save
     end
     respond_to do |format|
-      format.html {redirect_to user_path}
+      format.js { redirect_to user_path}
     end
   end
 
   def result
+    @user = User.find(params[:id])
     @result = Uanswer.where(user_id: params[:id]).where(result: true).count
   end
 

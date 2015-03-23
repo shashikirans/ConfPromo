@@ -1,9 +1,25 @@
-<%= form_for :uanswer, url: check_quiz_user_path(question_id: @question, user_id: @user.id), :method => :post do |f|%>
-<%=  $i +=1 %>.
-<%= @question.question %><br><br>
-<% @choices.each do |choice| %>
-<%= f.radio_button :choosen_answer,  choice.qoption_id %>
-<%= choice.qoption_text %><br><br>
-<% end %><br><br>
-<%= f.submit "Next", :id => "click_disable"%>
+<div class="col-sm-2">
+  <div class="quest-num">
+    <span>question</span>
+    <div class="number"> <%=  $i +=1 %> </div>
+  </div>
+</div>
+<%= form_for :uanswer, url: check_quiz_user_path(question_id: @question, user_id: @user.id), :method => :post,:remote => true do |f|%>
+<div class="col-sm-7">
+  <div class="quest-section">
+    <div class="question"><%= @question.question %></div>
+    <% @choices.each do |choice| %>
+    <div class="margin-btm">
+      <%= f.radio_button :choosen_answer,  choice.qoption_id %>
+      <label for="uanswer_choosen_answer_<%= choice.qoption_id %>" class="normal"><span><span></span></span><%= choice.qoption_text %></label>
+    </div>
+    <% end %>
+  </div>
+  <div class="btn-margin-top">
+    <%= f.submit "Next", :class => "btn btn-primary btn-margin-right"%>
+    <!-- <button class="btn btn-primary btn-margin-right" type="submit">Next</button> -->
+    <button class="btn btn-default" type="submit">Back</button>
+  </div>
+
+</div>
 <% end %>

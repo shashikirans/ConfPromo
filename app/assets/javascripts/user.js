@@ -27,7 +27,7 @@ function UserValidator() {
   },
   "user[email]": {
     required: "This field is required!",
-    email: "Please enter a valid E-Mail address!",
+    email: "Please enter a valid E-mail address!",
     remote: "Email has been already taken"
   },
   "user[organization]": {
@@ -80,37 +80,3 @@ invalidHandler: function(event, validator) {
     });
 
 }
-
-// $(document).on("click", '#start', function(event){
-//   $("#future_date").countdowntimer({
-//     minutes : 3,
-//     seconds : 00,
-//     size : "lg"
-//   });
-// });
-
-$(document).on("click", '#start', function(event){
-
-  $("#future_date").countdowntimer({
-    minutes : 03,
-    seconds : 00,
-    size : "lg"
-  });
-
-
-  setTimeout(function(){
-    var user_id = $("#start").val();
-    $.ajax({
-    type: 'GET',
-    url: "/users/"+user_id+"/result",
-    success: function (data){
-      console.log(data);
-      $("#question").hide();
-      $("#start").hide();
-      $("#name").hide();
-       $("#pop").append(data);
-    }
-  });
-  }, 180000);
-
-});

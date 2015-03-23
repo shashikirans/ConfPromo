@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     get 'user_question'
     post "check_quiz"
     get "result"
+    get "start"
   end
   end
   resources :questions do

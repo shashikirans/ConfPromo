@@ -1,0 +1,45 @@
+
+	<div class="col-sm-3">
+		<div class="timer-runner">
+			<div class="row">
+				<div class="col-sm-5" id="future_date">
+					<!-- 03  -->
+				</div>
+				<div class="col-sm-1"> </div>
+				<div class="col-sm-5"></div>
+			</div>
+			<div class="row min-sec">
+				<div class="col-sm-5 text-center">
+					<div>minutes </div>
+				</div>
+				<div class="col-sm-2">  </div>
+				<div class="col-sm-6">seconds</div>
+			</div>
+
+		</div>
+	</div>
+
+<input type="hidden" value="<%= @user.id %>" id="user">
+<script type="text/javascript">
+ setTimeout(function(){
+  $("#future_date").countdowntimer({
+    minutes : 3,
+    seconds : 00,
+    size : "lg"
+  });
+ },0000);
+  setTimeout(function(){
+    var user_id = $("#user").val();
+    console.log(user_id)
+    $.ajax({
+      type: 'GET',
+      url: "/users/"+user_id+"/result",
+      success: function (data){
+        window.location.href=$(this).attr('url');
+        // $("nav:nth-child(1)").hide();
+        // $("#results").replaceWith(data);
+      }
+    });
+  }, 180000);
+
+</script>
