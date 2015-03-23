@@ -61,10 +61,8 @@ class UsersController < ApplicationController
   end
 
   def result
-    binding.pry
     session[:user_id] = nil
     @user = User.find(params[:id])
-    binding.pry
     @result = Uanswer.where(user_id: params[:id]).where(result: true).count
   end
 
