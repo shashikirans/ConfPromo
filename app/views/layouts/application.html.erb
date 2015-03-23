@@ -32,19 +32,65 @@
 		</div><!-- /.container-fluid -->
 	</nav>
 
- <div class="container" id="results">
-  <%= yield %>
-  <footer>
-    Qwinix Technologies. All rights reserved @2015 
-  </footer>
-</div>
+	<div class="container" id="results">
+		<%= yield %>
+		<footer>
+			Qwinix Technologies. All rights reserved @2015 
+		</footer>
+	</div>
 
 </body>
 </html>
 
 
-  <script type="text/javascript">
-   $(function () {
-    $('[data-toggle="tooltip"]').tooltip()
-  })
- </script>
+<script type="text/javascript">
+	$(function () {
+		$('[data-toggle="tooltip"]').tooltip()
+	})
+
+	function disableF5(e) { if ((e.which || e.keyCode) == 116) e.preventDefault(); };
+	$(document).on("keydown", disableF5);
+
+	$(document).keydown(function(e) {
+		if (e.keyCode == 82) {
+			return false;
+		}
+	});
+
+	<!--
+
+//Disable right mouse click Script
+//By Maximus (maximus@nsimail.com) w/ mods by DynamicDrive
+//For full source code, visit http://www.dynamicdrive.com
+
+var message="Function Disabled!";
+
+///////////////////////////////////
+function clickIE4(){
+	if (event.button==2){
+		alert(message);
+		return false;
+	}
+}
+
+function clickNS4(e){
+	if (document.layers||document.getElementById&&!document.all){
+		if (e.which==2||e.which==3){
+			alert(message);
+			return false;
+		}
+	}
+}
+
+if (document.layers){
+	document.captureEvents(Event.MOUSEDOWN);
+	document.onmousedown=clickNS4;
+}
+else if (document.all&&!document.getElementById){
+	document.onmousedown=clickIE4;
+}
+
+document.oncontextmenu=new Function("return false")
+
+// --> 
+</script>
