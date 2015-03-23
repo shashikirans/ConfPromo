@@ -1,7 +1,18 @@
 Rails.application.routes.draw do
   root 'users#index'
-  get "users/check_email" =>"users#check_email"
-  resources :users
+  get 'users/check_email' => 'users#check_email'
+  resources :users do
+    member do
+    get 'user_question'
+    post "check_quiz"
+    get "result"
+    get "start"
+  end
+  end
+  resources :questions do
+    resources :qchoices
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

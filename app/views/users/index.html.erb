@@ -1,30 +1,35 @@
- <%= render partial: 'layouts/error_messages', locals: {error_messages: @user.errors.full_messages} if @user.errors.any? -%>
- <%= form_for @user do |f| %>
-  <p>
-    <%= f.label :Name%><br>
-    <%= f.text_field :user_name %>
-  </p>
+ <div class="row">
+  <div class="col-sm-4 col-sm-offset-4">
+  <%= form_for @user do |f| %>
+  <div class="form-group" data-toggle ="tooltip" data-placement= "left" title="Enter Your Name">
+    <%= f.text_field :user_name,:class=>"form-control",:placeholder=>"Your Name" %>
+  </div>
+  <div class="form-group" data-toggle ="tooltip" data-placement= "left" title="Enter Your Email">
+         <%= f.text_field :email,:class=>"form-control",:placeholder=>"Your Email"%>
+      </div>
+      <div class="form-group" data-toggle ="tooltip" data-placement= "left" title="Enter Your Organisation">
+       <%= f.text_field :organization,:class=>"form-control",:placeholder=>"Organisation"%>
+      </div>
+      <div class="form-group" data-toggle ="tooltip" data-placement= "left" title="Enter Your Designation">
+    <%= f.text_field :designation,:class=>"form-control",:placeholder=>"Designation"%><br>
+      </div>
+       <div class="form-group btn-margin-top">
+        <div class="col-sm-offset-2 col-sm-10">
+          <%= f.submit "submit",:id => "click_disable1",:class => "btn btn-primary btn-margin-right"%>
+          <% end %>
+          <!-- <button href="#" class="btn btn-default">cancel</button> -->
+        </div>
+      </div>
 
-  <p>
-    <%= f.label :Email %><br>
-    <%= f.text_field :email %>
-  </p>
+  </div>
+</div>
 
-  <p>
-    <%= f.label :Organization %><br>
-    <%= f.text_field :organization %>
-  </p>
-
-  <p>
-    <%= f.label :Designation %><br>
-    <%= f.text_field :designation %>
-  </p>
-
-  <p>
-    <%= f.submit "ok" %>
-  </p>
-<% end %>
-
-<script>
-UserValidator();
+<div style="text-align:right">
+<%= link_to "create question",new_question_path,:class => "btn-primary" %>
+</div>
+<script type="text/javascript">
+   $(function () {
+    $('[data-toggle="tooltip"]').tooltip();
+  });
+  UserValidator();
 </script>

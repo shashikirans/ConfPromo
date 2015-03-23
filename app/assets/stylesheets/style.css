@@ -1,0 +1,75 @@
+.logo {
+margin: 25px 15px;
+}
+.intro {
+	line-height: 90px;vertical-align: middle;
+}
+.up-arrow {
+	font-size: 34px;	
+}
+.valid-error {
+	border :1px solid #E9694E;
+}
+.btn-margin-top {
+	margin-top: 40px;
+}
+.start {
+ background-color: #46B973;padding: 20px 40px;font-size: 60px;text-transform: uppercase;
+}
+.start a{
+color: #fff;
+}
+.arrow-icon {
+	font-size: 70px !important;font-weight: 300 !important;
+}
+@font-face {
+	font-family: "digital-timer";
+	src: font-url('DS-DIGI.TTF') ;
+}
+.timer {
+	font-family: digital-timer;color: #fff;
+	background-color: #565D67;padding: 32px 50px;font-size: 50px !important;line-height: 1;
+}
+.timer .min-sec {
+	font-family: 'Titillium Web', sans-serif;
+	font-size: 12px !important;text-transform: uppercase;
+}
+.quest-num {
+font-family: digital-timer;color: #fff;text-align: center;
+	background-color: #46B973;padding: 18px 20px;
+}
+.quest-num .number {
+	font-size: 80px !important;line-height: 1;
+}
+
+.quest-num span {
+	font-family: 'Titillium Web', sans-serif;
+	font-size: 14px;text-transform: uppercase;
+}
+.timer-runner {
+	font-family: digital-timer;color: #fff;
+	background-color: #46B973;padding: 35px 50px;font-size: 50px !important;line-height: 1;
+}
+.timer-runner .min-sec {
+	font-family: 'Titillium Web', sans-serif;
+	font-size: 12px;text-transform: uppercase;
+}
+.question {
+	font-weight: 600;margin-bottom: 30px;
+}
+.winner {
+ background-color: #46B973;padding: 20px 40px;font-size: 70px;text-transform: capitalize;
+ color: #fff;
+}
+.wish-msg {
+	font-weight: 600;font-size: 34px;color: #6D6F71;text-align: center;margin-top: 30px;
+}
+.wish-msg span {
+	color: #46B973;
+}
+.btn-margin-right {
+	margin-right: 10px;
+}
+.quest-section {
+min-height: 225px;
+}
