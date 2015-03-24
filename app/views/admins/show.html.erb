@@ -1,0 +1,9 @@
+<% @i=0 %>
+<% @users.each do |u| %>
+<%= @i +=1%>.Name: <%= u.user_name %><br>Organization: <%= u.organization %><br>
+<% u.uanswers.each do |ua| %>
+Question: <%= Question.find_by_id(ua.question_id).question %>
+Choosen Answer: <%= ua.choosen_answer%>
+Correct Answer: <%= Question.find_by_id(ua.question_id).answer_id%><br>
+<% end %><br>
+<% end %>
