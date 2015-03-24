@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  skip_before_action :require_login, only: [:index, :create]
+
   def check_email
     @user = User.find_by_email(params[:user][:email])
     respond_to do |format|
@@ -59,6 +61,7 @@ class UsersController < ApplicationController
   end
 
   def result
+    session[:user_id] = nil
     @user = User.find(params[:id])
     @result = Uanswer.where(user_id: params[:id]).where(result: true).count
   end

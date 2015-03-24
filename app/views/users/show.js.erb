@@ -1,4 +1,1 @@
 $("#user_question").html("<%= escape_javascript(render(:partial=>'/users/user_question', :locals=>{:question => @question,:choices=>@choices})) %>");
-  function preventBack(){window.history.forward();}
-  setTimeout("preventBack()", 0);
-  window.onunload=function(){null};
