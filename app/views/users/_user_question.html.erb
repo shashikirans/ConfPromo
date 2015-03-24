@@ -1,3 +1,4 @@
+<% if @question.present? %>
 <div class="col-sm-2">
   <div class="quest-num">
     <span>question</span>
@@ -20,4 +21,7 @@
     <!-- <button class="btn btn-primary btn-margin-right" type="submit">Next</button> -->
   </div>
 </div>
+<% end %>
+<% else %>
+<h1>No Questions</h1>
 <% end %>

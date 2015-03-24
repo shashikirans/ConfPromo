@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20150319034603) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "qchoices", force: :cascade do |t|
     t.integer  "qoption_id"
     t.string   "qoption_text"
@@ -21,7 +24,7 @@ ActiveRecord::Schema.define(version: 20150319034603) do
     t.datetime "updated_at",   null: false
   end
 
-  add_index "qchoices", ["question_id"], name: "index_qchoices_on_question_id"
+  add_index "qchoices", ["question_id"], name: "index_qchoices_on_question_id", using: :btree
 
   create_table "questions", force: :cascade do |t|
     t.string   "question"
@@ -39,8 +42,8 @@ ActiveRecord::Schema.define(version: 20150319034603) do
     t.boolean  "result"
   end
 
-  add_index "uanswers", ["question_id"], name: "index_uanswers_on_question_id"
-  add_index "uanswers", ["user_id"], name: "index_uanswers_on_user_id"
+  add_index "uanswers", ["question_id"], name: "index_uanswers_on_question_id", using: :btree
+  add_index "uanswers", ["user_id"], name: "index_uanswers_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "user_name"
@@ -51,4 +54,7 @@ ActiveRecord::Schema.define(version: 20150319034603) do
     t.datetime "updated_at",   null: false
   end
 
+  add_foreign_key "qchoices", "questions"
+  add_foreign_key "uanswers", "questions"
+  add_foreign_key "uanswers", "users"
 end
