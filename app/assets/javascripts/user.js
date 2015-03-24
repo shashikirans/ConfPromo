@@ -23,18 +23,18 @@ function UserValidator() {
 
   messages: {
    "user[user_name]":{
-    required: "This field is required!"
+    required: "Name is required!"
   },
   "user[email]": {
-    required: "This field is required!",
-    email: "Please enter a valid E-Mail address!",
+    required: "Email is required!",
+    email: "Please enter a valid E-mail address!",
     remote: "Email has been already taken"
   },
   "user[organization]": {
-    required:"This field is required!"
+    required:"Organization is required!"
   },
   "user[designation]": {
-    required: "This field is required!"
+    required: "Designation is required!"
   }
 },
 
@@ -80,12 +80,3 @@ invalidHandler: function(event, validator) {
     });
 
 }
-
-$(document).on("click", '#start', function(event){
-  $("#future_date").countdowntimer({
-    minutes : 3,
-    seconds : 00,
-    size : "lg"
-  });
-});
-
