@@ -29,18 +29,16 @@
 				<a class="logo" href="index.html"><%= image_tag asset_path("qwinix-logo.png"),:class =>"logo", :alt => "logo" %>
 				</a>
 			</div>
-
-			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse">
 				<a href="#" class="navbar-right intro">Introduction</a>
-			</div><!-- /.navbar-collapse -->
-		</div><!-- /.container-fluid -->
+			</div>
+		</div>
 	</nav>
 
 	<div class="container" id="results">
 		<%= yield %>
 		<footer>
-			Qwinix Technologies. All rights reserved @2015 
+			Qwinix Technologies. All rights reserved @2015
 		</footer>
 	</div>
 
@@ -62,20 +60,12 @@
 		}
 	});
 
-	<!--
-
-//Disable right mouse click Script
-//By Maximus (maximus@nsimail.com) w/ mods by DynamicDrive
-//For full source code, visit http://www.dynamicdrive.com
-
-var message="Function Disabled!";
-
-///////////////////////////////////
-function clickIE4(){
-	if (event.button==2){
-		alert(message);
-		return false;
-	}
+  var message="Function Disabled!";
+  function clickIE4(){
+   if (event.button==2){
+    alert(message);
+    return false;
+  }
 }
 
 function clickNS4(e){
@@ -97,7 +87,7 @@ else if (document.all&&!document.getElementById){
 
 document.oncontextmenu=new Function("return false")
 
-// --> 
+// -->
 
 window.history.forward();function noBack(){window.history.forward();}
 // window.onbeforeunload = function() { return false };

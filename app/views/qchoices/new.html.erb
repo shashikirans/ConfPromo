@@ -1,17 +1,17 @@
 <%= form_for @qchoices, url: question_qchoices_path, :method => :post do |f| %>
-  <p>
-    <%= f.label :Choice_id%><br>
-    <%= f.text_field :qoption_id %>
-  </p>
+<p>
+  <%= f.label :Choice_id%><br>
+  <%= f.text_field :qoption_id %>
+</p>
 
-  <p>
-    <%= f.label :Answer_text %><br>
-    <%= f.text_field :qoption_text %>
-  </p>
+<p>
+  <%= f.label :Answer_text %><br>
+  <%= f.text_field :qoption_text %>
+</p>
 
-  <p>
-    <%= f.submit "ok" %>
-  </p>
+<p>
+  <%= f.submit "ok" %>
+</p>
 <% end %>
 
 

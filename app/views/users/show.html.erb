@@ -1,10 +1,9 @@
 <div class="row">
-<div id="user_question">
-	<%= render partial: 'user_question'%>
+  <div id="user_question">
+   <%= render partial: 'user_question'%>
+ </div>
+ <%= render partial: 'timer',:locals  =>	{ :user => @user}%>
 </div>
-	<%= render partial: 'timer',:locals  =>	{ :user => @user}%>
-</div>
-
 <script>
   function preventBack(){window.history.forward();}
   setTimeout("preventBack()", 0);
