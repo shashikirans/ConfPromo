@@ -1,10 +1,7 @@
-<h1>Hi <%= @user.user_name %>!</h1>
-<%= button_tag "start",:id=>"start"%>
-<div class="box active" style="height: 28px;" id="countdowntimer">
-  <span id="future_date" style="font-size: 22px;"><span>
-	<div id="countdown"></div>
-</div><br><br>
-<div id="question">
-<br><br>
-<%= render partial: 'user_question'%>
+<div class="row">
+<div id="user_question">
+	<%= render partial: 'user_question'%>
 </div>
+	<%= render partial: 'timer',:locals  =>	{ :user => @user}%>
+</div>
+

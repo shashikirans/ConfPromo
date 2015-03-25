@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  skip_before_action :require_login, only: [:index, :create]
 
   def check_email
     @user = User.find_by_email(params[:user][:email])
@@ -16,20 +17,24 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_id] = @user.id
       $i = 0
-      @@question_ids = Question.all.collect(&:id).first(15).shuffle.sample(5)
+      @@question_ids = Question.all.collect(&:id).first(20).shuffle.sample(15)
       @@qwinix = Question.all.collect(&:id).last(5)
-      redirect_to user_path(@user)
+      redirect_to start_user_path(@user)
     else
       render 'index'
     end
   end
 
+  def start
+    @user = User.find(params[:id])
+  end
+
   def show
     @user = User.find(params[:id])
-    if $i < 5
+    if $i < 15
       @question = Question.find @@question_ids.pop
       @choices = Qchoice.where(question_id: @question.id)
-    elsif $i >= 5 && $i < 10
+    elsif $i >= 15 && $i < 20
       @question = Question.find @@qwinix.pop
       @choices = Qchoice.where(question_id: @question.id)
     else
@@ -51,11 +56,13 @@ class UsersController < ApplicationController
       @uanswer.save
     end
     respond_to do |format|
-      format.html {redirect_to user_path}
+      format.js { redirect_to user_path}
     end
   end
 
   def result
+    session[:user_id] = nil
+    @user = User.find(params[:id])
     @result = Uanswer.where(user_id: params[:id]).where(result: true).count
   end
 
