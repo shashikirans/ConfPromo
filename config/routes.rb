@@ -9,6 +9,8 @@ Rails.application.routes.draw do
     get "start"
   end
   end
+  post 'admins/check_admin' => 'admins#check_admin'
+  resources :admins
   resources :questions do
     resources :qchoices
   end
