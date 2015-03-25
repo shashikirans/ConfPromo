@@ -8,21 +8,18 @@
 	<link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600,700' rel='stylesheet' type='text/css'>
 	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
 	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-	<script type="text/javascript">
-		function preventBack(){window.history.forward();}
-		setTimeout("preventBack()", 0);
-		window.onunload=function(){null};</script>
-		<%= csrf_meta_tags %>
-	</head>
-	<body id="pop" onload="noBack();"
-	onpageshow="if (event.persisted) noBack();" onunload=""><%= render partial: 'layouts/header'  %>
-	<div class="container" id="results">
-		<%= yield %>
-		<footer>
-			Qwinix Technologies. All rights reserved @2015
-		</footer>
-	</div>
-
+  <%= csrf_meta_tags %>
+</head>
+<body id="pop">
+  <%= render partial: 'layouts/header'  %>
+  <div class="container contet-area-margin">
+  <%= yield %>
+  </div>
+  <footer>
+    <div class="container">
+      Qwinix Technologies. All rights reserved @2015
+    </div>
+  </footer>
 </body>
 </html>
 <script type="text/javascript">
