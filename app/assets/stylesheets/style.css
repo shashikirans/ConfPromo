@@ -5,7 +5,7 @@ margin: 25px 15px;
 	line-height: 90px;vertical-align: middle;
 }
 .up-arrow {
-	font-size: 34px;	
+	font-size: 34px;
 }
 .valid-error {
 	border :1px solid #E9694E;
@@ -24,7 +24,7 @@ color: #fff;
 }
 @font-face {
 	font-family: "digital-timer";
-	src: font-url('DS-DIGI.TTF') ;
+	src:url("assets/DS-DIGI.TTF");
 }
 .timer {
 	font-family: digital-timer;color: #fff;
@@ -72,4 +72,13 @@ font-family: digital-timer;color: #fff;text-align: center;
 }
 .quest-section {
 min-height: 225px;
+}
+.contet-area-margin {
+margin-top: 80px;
+}
+.slider-position {
+	position:absolute;top:110px;
+}
+.slider-close-btn {
+	font-size:40px !important;position:relative;top:5px;right:-25px;
 }
