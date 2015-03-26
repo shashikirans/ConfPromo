@@ -138,54 +138,44 @@ footer {
   background-color: #E9E9E9;
 color: #fff;text-align: right;
 }
-/*Custom Radio button and Check box*/
-input[type="file"]:focus,
-input[type="radio"]:focus,
-input[type="checkbox"]:focus {
-  outline: none;
+/*Custom Radio button */
+
+
+input[type="radio"] {
+    display:none;
+}
+input[type="radio"] + label {
+    color: $DarkBrown;
+    font-family:Arial, sans-serif;
+    font-size:14px;
+}
+input[type="radio"] + label span {
+    display:inline-block;
+    width:19px;
+    height:19px;
+    margin:-1px 4px 0 0;
+    vertical-align:middle;
+    cursor:pointer;
+    -moz-border-radius:  50%;
+    border-radius:  50%;
 }
 
-input[type=checkbox]:not(old) + label,
-input[type=radio   ]:not(old) + label{
-  display      : inline-block;
-  margin-left  : -2em;
-  line-height  : 1.9em;
+input[type="radio"] + label span {
+     background-color:#C2C2C2;
 }
-input[type=checkbox]:not(old) + label > span,
-input[type=radio   ]:not(old) + label > span{
-  display          : inline-block;
-  width            : 1.5em;
-  height           : 1.5em;
-  margin           : 0.3em 0.4em 0.25em 0.50em;
-  border           : 0.0625em solid rgb(205,205,205);
-  border-radius    : 1em;
-  background       : rgb(205,205,205);
-  vertical-align   : bottom;
+
+input[type="radio"]:checked + label span{
+     background-color:#46B973;
 }
-input[type=checkbox]:not(old):checked + label > span,
-input[type=radio   ]:not(old):checked + label > span{
-  background       : rgb(255,255,255);
+
+input[type="radio"] + label span,
+input[type="radio"]:checked + label span {
+  -webkit-transition:background-color 0.4s linear;
+  -o-transition:background-color 0.4s linear;
+  -moz-transition:background-color 0.4s linear;
+  transition:background-color 0.4s linear;
 }
-input[type=checkbox]:not(old):checked + label > span:before{
-  content     : '?';
-  display     : block;
-  width       : 1em;
-  color       : rgb(153,204,102);
-  font-size   : 0.875em;
-  line-height : 1em;
-  text-align  : center;
-  text-shadow : 0 0 0.0714em rgb(115,153,77);
-  font-weight : bold;
-}
-input[type=radio]:not(old):checked + label > span > span{
-  display          : block;
-  width            : 0.75em;
-  height           : 0.75em;
-  margin           : 0.30em;
-  border           : 0.0625em solid rgb(70,185,115);
-  border-radius    : 0.5em;
-  background       : rgb(70,185,115);
-}
+
 label.normal {
 	font-size: 16px;font-weight: 400;
 }
