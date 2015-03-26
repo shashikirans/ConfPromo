@@ -1,1 +1,1 @@
-$("#user_question").html("<%= escape_javascript(render(:partial=>'/users/user_question', :locals=>{:question => @question,:choices=>@choices})) %>");
+$("#user_question").html("<%= escape_javascript(render(:partial=>'/users/user_question', :locals=>{:question => @question,:choices=>@choices})) %>").hide().fadeIn(2000);
